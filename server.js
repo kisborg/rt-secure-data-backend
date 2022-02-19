@@ -8,12 +8,12 @@ const PORT = process.env.port || 3000;
 
 
 io.on('connection', (socket) => {
-  console.log('connected');
+  console.log('user connected');
   socket.on('message', (evt) => {
     socket.broadcast.emit('message', evt);
   });
 });
-io.on('disconnect', (evt) => {
+io.on('disconnect', () => {
   console.log('some people left');
 });
 
