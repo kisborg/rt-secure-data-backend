@@ -1,11 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-const PORT = process.env.port || 3000;
-
+const port = process.env.PORT || 3000;
 
 io.on('connection', (socket) => {
   console.log('user connected');
@@ -17,6 +17,6 @@ io.on('disconnect', () => {
   console.log('some people left');
 });
 
-http.listen(PORT, () => {
-  console.log(`app listening on port ${PORT}`);
+http.listen(port, () => {
+  console.log(`app listening on port ${port}`);
 });
